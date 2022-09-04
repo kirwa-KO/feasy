@@ -1,9 +1,10 @@
 import { ErrorMessage, InfoMessage } from "./constants/Colors.js";
-import { ScreenOptions, WidgetOptions, StatefulOptions, StatelessOptions, NeedAppbarOptions, NeedBottomNavigationBarOptions } from "./constants/Optins.js";
+import { ScreenOptions, WidgetOptions, StatefulOptions, StatelessOptions, NeedAppbarOptions, NeedBottomNavigationBarOptions, HelpOptions } from "./constants/Optins.js";
 import { CreateScreen } from "./utils/CreateScreensHelper.js";
 import { CreateWidget } from "./utils/CreateWidgetsHelper.js";
 import { checkIfFolderExistInCurrentDirectory } from "./utils/FsHelpers.js";
 import { IsOneOfOptionsFunc, IsWidgetNameExistFunc, GetWidgetFileNameFunc, GetWidgetNameFunc } from "./utils/Helper.js";
+import { help } from "./utils/manual.js";
 var isScreen = false;
 var isWidget = true;
 var isStateless = true;
@@ -18,6 +19,7 @@ for (var i = 2; i < process.argv.length; i++) {
         isWidget = false;
         widgetFileName = GetWidgetFileNameFunc(process.argv[i + 1]);
         widgetName = GetWidgetNameFunc(process.argv[i + 1]);
+        i++;
     }
     if (IsOneOfOptionsFunc(process.argv[i], WidgetOptions)) {
         IsWidgetNameExistFunc(i, process.argv.length, WidgetOptions[0]);
@@ -25,6 +27,7 @@ for (var i = 2; i < process.argv.length; i++) {
         isWidget = true;
         widgetFileName = GetWidgetFileNameFunc(process.argv[i + 1]);
         widgetName = GetWidgetNameFunc(process.argv[i + 1]);
+        i++;
     }
     if (IsOneOfOptionsFunc(process.argv[i], StatefulOptions)) {
         isStateless = false;
@@ -37,6 +40,10 @@ for (var i = 2; i < process.argv.length; i++) {
     }
     if (IsOneOfOptionsFunc(process.argv[i], NeedBottomNavigationBarOptions)) {
         isNeedBottomNavigationBar = true;
+    }
+    if (IsOneOfOptionsFunc(process.argv[i], HelpOptions)) {
+        help();
+        process.exit(0);
     }
 }
 if (checkIfFolderExistInCurrentDirectory("lib") == false) {

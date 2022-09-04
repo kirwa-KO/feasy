@@ -19,3 +19,9 @@ export var InfoMessage = function (message) {
 export var SuccessMessage = function (message) {
     console.log("".concat(BOLD_FG_GREEN).concat(message).concat(RESET_BOLD_FG_GREEN));
 };
+export var ReturnBoldMessage = function (message) {
+    return ("".concat(BOLD).concat(message).concat(RESET_BOLD));
+};
+export var ReturnInfoMessage = function (message) {
+    return ("".concat(BOLD_FG_BLUE).concat(message).concat(RESET_BOLD_FG_BLUE));
+};

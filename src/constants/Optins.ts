@@ -4,3 +4,4 @@ export const StatefulOptions = ["stateful", "sf", "--stateful", "full", "f", "--
 export const StatelessOptions = ["stateless", "sl", "--stateless", "less", "l", "--less", "stl"];
 export const NeedAppbarOptions = ["appbar", "a", "--appbar"];
 export const NeedBottomNavigationBarOptions = ["bottomnavigationbar", "b", "--bottomnavigationbar"];
+export const HelpOptions = ["help", "h", "--help"];

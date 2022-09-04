@@ -24,3 +24,11 @@ export const InfoMessage = (message: string): void => {
 export const SuccessMessage = (message: string): void => {
 	console.log(`${BOLD_FG_GREEN}${message}${RESET_BOLD_FG_GREEN}`);
 }
+
+export const ReturnBoldMessage = (message: string): string => {
+	return (`${BOLD}${message}${RESET_BOLD}`);
+}
+
+export const ReturnInfoMessage = (message: string): string => {
+	return(`${BOLD_FG_BLUE}${message}${RESET_BOLD_FG_BLUE}`);
+}
