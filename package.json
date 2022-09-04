@@ -1,13 +1,13 @@
 {
-	"name": "fcli",
-	"version": "1.0.0",
+	"name": "feasy",
+	"version": "1.0.1",
 	"type": "module",
 	"scripts": {
 		"build": "tsc"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kirwa-KO/flutter-cli"
+		"url": "https://github.com/kirwa-KO/feasy"
 	},
 	"keywords": [
 		"flutter command line",
@@ -18,7 +18,7 @@
 	],
 	"author": "kirwa-KO",
 	"license": "MIT",
-	"description": "fcli is command line for creating Stateful and Stateless widget and screens for flutter",
+	"description": "feasy is command line for creating Stateful and Stateless widget and screens for flutter",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
@@ -29,6 +29,6 @@
 		"@types/node": "^18.7.14"
 	},
 	"bin": {
-		"fcli": "dist/index.js"
+		"feasy": "dist/index.js"
 	}
 }
