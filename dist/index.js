@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { ErrorMessage, InfoMessage } from "./constants/Colors.js";
 import { ScreenOptions, WidgetOptions, StatefulOptions, StatelessOptions, NeedAppbarOptions, NeedBottomNavigationBarOptions, HelpOptions } from "./constants/Optins.js";
 import { CreateScreen } from "./utils/CreateScreensHelper.js";
