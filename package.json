@@ -1,0 +1,34 @@
+{
+	"name": "fcli",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kirwa-KO/flutter-cli"
+	},
+	"keywords": [
+		"flutter command line",
+		"flutter cli",
+		"flutter widget",
+		"flutter screen",
+		"flutter"
+	],
+	"author": "kirwa-KO",
+	"license": "MIT",
+	"description": "fcli is command line for creating Stateful and Stateless widget and screens for flutter",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"/dist"
+	],
+	"devDependencies": {
+		"typescript": "^4.7.4",
+		"@types/node": "^18.7.14"
+	},
+	"bin": {
+		"fcli": "dist/index.js"
+	}
+}
