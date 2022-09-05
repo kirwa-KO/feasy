@@ -9,7 +9,7 @@ import { IsOneOfOptionsFunc, IsWidgetNameExistFunc, GetWidgetFileNameFunc, GetWi
 import { help } from "./utils/manual.js";
 
 let isScreen: boolean = false;
-let isWidget: boolean = true;
+let isWidget: boolean = false;
 let isStateless: boolean = true;
 let widgetName: string = "MyWidget";
 let widgetFileName: string = "MyWidget";
@@ -66,6 +66,11 @@ if (checkIfFolderExistInCurrentDirectory("lib") == false) {
 if (isScreen === true) {
 	CreateScreen(widgetName, widgetFileName, isStateless, isNeedAppbar, isNeedBottomNavigationBar);
 }
-else {
+else if (isWidget === true) {
 	CreateWidget(widgetName, widgetFileName, isStateless);
+}
+else {
+	ErrorMessage("❌ Invalid Option\n");
+	help();
+	process.exit(0);
 }

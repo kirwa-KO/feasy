@@ -7,7 +7,7 @@ import { checkIfFolderExistInCurrentDirectory } from "./utils/FsHelpers.js";
 import { IsOneOfOptionsFunc, IsWidgetNameExistFunc, GetWidgetFileNameFunc, GetWidgetNameFunc } from "./utils/Helper.js";
 import { help } from "./utils/manual.js";
 var isScreen = false;
-var isWidget = true;
+var isWidget = false;
 var isStateless = true;
 var widgetName = "MyWidget";
 var widgetFileName = "MyWidget";
@@ -59,6 +59,11 @@ if (checkIfFolderExistInCurrentDirectory("lib") == false) {
 if (isScreen === true) {
     CreateScreen(widgetName, widgetFileName, isStateless, isNeedAppbar, isNeedBottomNavigationBar);
 }
-else {
+else if (isWidget === true) {
     CreateWidget(widgetName, widgetFileName, isStateless);
+}
+else {
+    ErrorMessage("❌ Invalid Option\n");
+    help();
+    process.exit(0);
 }
