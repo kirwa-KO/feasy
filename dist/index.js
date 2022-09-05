@@ -13,6 +13,10 @@ var widgetName = "MyWidget";
 var widgetFileName = "MyWidget";
 var isNeedAppbar = false;
 var isNeedBottomNavigationBar = false;
+if (process.argv.length <= 2) {
+    help();
+    process.exit(0);
+}
 for (var i = 2; i < process.argv.length; i++) {
     if (IsOneOfOptionsFunc(process.argv[i], ScreenOptions)) {
         IsWidgetNameExistFunc(i, process.argv.length, ScreenOptions[0]);
@@ -56,6 +60,5 @@ if (isScreen === true) {
     CreateScreen(widgetName, widgetFileName, isStateless, isNeedAppbar, isNeedBottomNavigationBar);
 }
 else {
-    console.log("widget");
     CreateWidget(widgetName, widgetFileName, isStateless);
 }

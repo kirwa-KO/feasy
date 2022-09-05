@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import { SuccessMessage } from "../constants/Colors.js";
 import { WidgetsFolder } from "../constants/FoldersNames.js";
 import { checkIfFolderExistInCurrentDirectory } from "./FsHelpers.js";
 import { StatefullWidgetContent, StatelessWidgetContent } from "./WidgetsContent.js";
@@ -18,4 +19,5 @@ export const CreateWidgetFileAndContent = (widgetName: string, screenFileName: s
 	else {
 		fs.writeFileSync(`${process.cwd()}/${WidgetsFolder}/${screenFileName}`, StatefullWidgetContent(widgetName,));
 	}
+	SuccessMessage("✅ Widget Created Successfully");
 }

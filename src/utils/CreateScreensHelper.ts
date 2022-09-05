@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import { SuccessMessage } from "../constants/Colors.js";
 import { ScreensFolder } from "../constants/FoldersNames.js";
 import { checkIfFolderExistInCurrentDirectory } from "./FsHelpers.js";
 import { StatefullScreenContent, StatelessScreenContent } from "./ScreensContent.js";
@@ -18,4 +19,5 @@ export const CreateScreenFileAndContent = (screenName: string, screenFileName: s
 	else {
 		fs.writeFileSync(`${process.cwd()}/${ScreensFolder}/${screenFileName}`, StatefullScreenContent(screenName, screenFileName, isNeedAppbar, isNeedBottomNavigationBar));
 	}
+	SuccessMessage("✅ Screen Created Successfully");
 }

@@ -1,5 +1,5 @@
 ### NAME
-   **feasy** – command line for creating Stateful and Stateless widgets and screens
+   **feasy** – command line for creating Stateful and Stateless widgets and screens in Flutter
 
 
 ### OPTIONS:
