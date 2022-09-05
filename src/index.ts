@@ -21,9 +21,11 @@ if (process.argv.length <= 2) {
 	process.exit(0);
 }
 
+let option: string;
 
 for (let i = 2;i < process.argv.length;i++) {
-	if (IsOneOfOptionsFunc(process.argv[i], ScreenOptions)) {
+	option = process.argv[i];
+	if (IsOneOfOptionsFunc(option, ScreenOptions)) {
 		IsWidgetNameExistFunc(i, process.argv.length, ScreenOptions[0]);
 		isScreen = true;
 		isWidget = false;
@@ -31,7 +33,7 @@ for (let i = 2;i < process.argv.length;i++) {
 		widgetName = GetWidgetNameFunc(process.argv[i + 1]);
 		i++;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], WidgetOptions)) {
+	else if (IsOneOfOptionsFunc(option, WidgetOptions)) {
 		IsWidgetNameExistFunc(i, process.argv.length, WidgetOptions[0]);
 		isScreen = false;
 		isWidget = true;
@@ -39,21 +41,26 @@ for (let i = 2;i < process.argv.length;i++) {
 		widgetName = GetWidgetNameFunc(process.argv[i + 1]);
 		i++;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], StatefulOptions)) {
+	else if (IsOneOfOptionsFunc(option, StatefulOptions)) {
 		isStateless = false;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], StatelessOptions)) {
+	else if (IsOneOfOptionsFunc(option, StatelessOptions)) {
 		isStateless = true;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], NeedAppbarOptions)) {
+	else if (IsOneOfOptionsFunc(option, NeedAppbarOptions)) {
 		isNeedAppbar = true;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], NeedBottomNavigationBarOptions)) {
+	else if (IsOneOfOptionsFunc(option, NeedBottomNavigationBarOptions)) {
 		isNeedBottomNavigationBar = true;
 	}
-	if (IsOneOfOptionsFunc(process.argv[i], HelpOptions)) {
+	else if (IsOneOfOptionsFunc(option, HelpOptions)) {
 		help();
 		process.exit(0);
+	}
+	else {
+		ErrorMessage("❌ Invalid Option : " + option + "\n");
+		help();
+		process.exit(1);
 	}
 }
 
@@ -72,5 +79,5 @@ else if (isWidget === true) {
 else {
 	ErrorMessage("❌ Invalid Option\n");
 	help();
-	process.exit(0);
+	process.exit(1);
 }
