@@ -16,34 +16,42 @@ export const IsWidgetNameExistFunc = (index: number, length: number, type: strin
 	}
 }
 
-export const GetWidgetFileNameFunc = (widgetName: string): string => {
+export const GetWidgetFileNameFunc = (widgetName: string, isSceen: boolean = false): string => {
 	let newWidgetName: string;
 	newWidgetName = widgetName.toLocaleLowerCase();
 	newWidgetName = newWidgetName.replace(/ /g, "_");
 	newWidgetName = newWidgetName.replace(/-/g, "_");
+	if (isSceen) {
+		return `${newWidgetName}_screen.dart`;
+	}
 	return `${newWidgetName}.dart`;
 }
 
 
-export const GetWidgetNameFunc = (widgetName: string): string => {
+export const GetWidgetNameFunc = (widgetName: string, isSceen: boolean = false): string => {
 	let newWidgetName: string;
 
 	newWidgetName = widgetName.replace(/-/g, " ");
 	newWidgetName = toCapitalize(newWidgetName);
 	newWidgetName = newWidgetName.replace(/ /g, "");
+	if (isSceen) {
+		return `${newWidgetName}Screen`;
+	}
 	return newWidgetName;
 }
 
 export const GetScreenName = (screenFileName: string): string => {
 	let newScreenName: string;
-	newScreenName = screenFileName.replace(/_/g, " ");
+	newScreenName = screenFileName.replace("_screen.dart", "");
+	newScreenName = newScreenName.replace(/_/g, " ");
 	newScreenName = toCapitalize(newScreenName);
 	return newScreenName;
 }
 
 export const GetScreenRouteName = (screenFileName: string): string => {
 	let newScreenName: string;
-	newScreenName = screenFileName.replace(/_/g, "-");
+	newScreenName = screenFileName.replace("_screen.dart", "");
+	newScreenName = newScreenName.replace(/_/g, "-");
 	newScreenName = newScreenName.replace(".dart", "");
 	return newScreenName;
 }

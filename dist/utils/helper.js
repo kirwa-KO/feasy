@@ -12,29 +12,39 @@ export var IsWidgetNameExistFunc = function (index, length, type) {
         process.exit();
     }
 };
-export var GetWidgetFileNameFunc = function (widgetName) {
+export var GetWidgetFileNameFunc = function (widgetName, isSceen) {
+    if (isSceen === void 0) { isSceen = false; }
     var newWidgetName;
     newWidgetName = widgetName.toLocaleLowerCase();
     newWidgetName = newWidgetName.replace(/ /g, "_");
     newWidgetName = newWidgetName.replace(/-/g, "_");
+    if (isSceen) {
+        return "".concat(newWidgetName, "_screen.dart");
+    }
     return "".concat(newWidgetName, ".dart");
 };
-export var GetWidgetNameFunc = function (widgetName) {
+export var GetWidgetNameFunc = function (widgetName, isSceen) {
+    if (isSceen === void 0) { isSceen = false; }
     var newWidgetName;
     newWidgetName = widgetName.replace(/-/g, " ");
     newWidgetName = toCapitalize(newWidgetName);
     newWidgetName = newWidgetName.replace(/ /g, "");
+    if (isSceen) {
+        return "".concat(newWidgetName, "Screen");
+    }
     return newWidgetName;
 };
 export var GetScreenName = function (screenFileName) {
     var newScreenName;
-    newScreenName = screenFileName.replace(/_/g, " ");
+    newScreenName = screenFileName.replace("_screen.dart", "");
+    newScreenName = newScreenName.replace(/_/g, " ");
     newScreenName = toCapitalize(newScreenName);
     return newScreenName;
 };
 export var GetScreenRouteName = function (screenFileName) {
     var newScreenName;
-    newScreenName = screenFileName.replace(/_/g, "-");
+    newScreenName = screenFileName.replace("_screen.dart", "");
+    newScreenName = newScreenName.replace(/_/g, "-");
     newScreenName = newScreenName.replace(".dart", "");
     return newScreenName;
 };

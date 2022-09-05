@@ -29,8 +29,8 @@ for (let i = 2;i < process.argv.length;i++) {
 		IsWidgetNameExistFunc(i, process.argv.length, ScreenOptions[0]);
 		isScreen = true;
 		isWidget = false;
-		widgetFileName = GetWidgetFileNameFunc(process.argv[i + 1]);
-		widgetName = GetWidgetNameFunc(process.argv[i + 1]);
+		widgetFileName = GetWidgetFileNameFunc(process.argv[i + 1], true);
+		widgetName = GetWidgetNameFunc(process.argv[i + 1], true);
 		i++;
 	}
 	else if (IsOneOfOptionsFunc(option, WidgetOptions)) {
